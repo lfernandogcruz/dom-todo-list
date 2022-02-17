@@ -1,5 +1,5 @@
-let button = document.getElementById('criar-tarefa')
-button.addEventListener('click', addTask);
+let botaoAddTask = document.getElementById('criar-tarefa')
+botaoAddTask.addEventListener('click', addTask);
 
 
 function addTask() {
@@ -34,3 +34,16 @@ function linethroughItem(event) {
 		}
 	}
 }
+
+
+
+let botaoClearAll = document.getElementById('apaga-tudo');
+let elementoLista = document.getElementById('lista-tarefas');
+
+
+function clearAll() {
+	elementoLista.innerText = '';
+}
+
+botaoClearAll.addEventListener('click', clearAll);
+
