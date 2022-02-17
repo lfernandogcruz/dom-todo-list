@@ -8,6 +8,7 @@ function addTask() {
 	let elementNewTask = document.createElement('li');
 	elementNewTask.innerText = newTask.value;
 	elementNewTask.addEventListener('click', highlightItem);
+	elementNewTask.addEventListener('dblclick', linethroughItem);
 	taskList.appendChild(elementNewTask);
 	newTask.value = '';
 }
@@ -22,3 +23,14 @@ function highlightItem(event) {
 // resolucao da funcao 'highlightItem' alcancada gracas as intrucoes
 // e testes ocorridos na Sala de Estudos junto aos colegas
 // Ronan Salvador, Vitor Vieira, Jonathan Jhon e Mariza Paini.
+
+function linethroughItem(event) {
+	let linethroughed = document.querySelectorAll('li');
+	for (let j = 0; j < linethroughed.length; j += 1) {
+		if (linethroughed[j].classList == 'selectedItem') {
+			event.target.classList.add('completed');
+		} else {
+			linethroughed[j].classList.remove('completed');
+		}
+	}
+}
