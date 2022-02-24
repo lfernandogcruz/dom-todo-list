@@ -1,10 +1,10 @@
 let botaoAddTask = document.getElementById('criar-tarefa')
 botaoAddTask.addEventListener('click', addTask);
 
+let newTask = document.getElementById('texto-tarefa');
+let taskList = document.getElementById('lista-tarefas');
 
 function addTask() {
-	let newTask = document.getElementById('texto-tarefa');
-	let taskList = document.getElementById('lista-tarefas');
 	let elementNewTask = document.createElement('li');
 	elementNewTask.innerText = newTask.value;
 	elementNewTask.addEventListener('click', highlightItem);
@@ -25,25 +25,26 @@ function highlightItem(event) {
 // Ronan Salvador, Vitor Vieira, Jonathan Jhon e Mariza Paini.
 
 function linethroughItem(event) {
-	let linethroughed = document.querySelectorAll('li');
-	for (let j = 0; j < linethroughed.length; j += 1) {
-		if (linethroughed[j].classList == 'selectedItem') {
-			event.target.classList.add('completed');
+		if (event.target.classList.contains('completed')) {
+			event.target.classList.remove('completed');
 		} else {
-			linethroughed[j].classList.remove('completed');
-		}
-	}
+			event.target.classList.add('completed');
+		};
 }
-
-
 
 let botaoClearAll = document.getElementById('apaga-tudo');
-let elementoLista = document.getElementById('lista-tarefas');
-
-
 function clearAll() {
-	elementoLista.innerText = '';
+	taskList.innerText = '';
 }
-
 botaoClearAll.addEventListener('click', clearAll);
+
+
+
+let botaoClearDone = document.getElementById('remover-finalizados');
+botaoClearDone.addEventListener('click', function () {
+	let elementoDone = document.querySelectorAll('.completed');
+	for (let k = 0; k < elementoDone.length; k += 1) {
+		elementoDone[k].remove();
+	};	
+});
 
