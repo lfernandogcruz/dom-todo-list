@@ -2,7 +2,6 @@ const newTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
 function highlightItem(event) {
-  console.log(event);
   const highlighted = document.querySelectorAll('li');
   for (let i = 0; i < highlighted.length; i += 1) {
     highlighted[i].classList.remove('selectedItem');
@@ -14,7 +13,6 @@ function highlightItem(event) {
 // Ronan Salvador, Vitor Vieira, Jonathan Jhon e Mariza Paini.
 
 function linethroughItem(event) {
-  console.log(event);
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
